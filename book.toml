@@ -1,0 +1,12 @@
+[book]
+title = "Tonk Docs"
+authors = ["Tonk Labs"]
+language = "en"
+src = "src"
+
+[output.html]
+git-repository-url = "https://github.com/tonk-labs/docs"
+edit-url-template = "https://github.com/tonk-labs/docs/edit/main/{path}"
+# Path the site is served from. Project pages live at /docs/.
+# Switch to "/" if a custom domain (e.g. docs.tonk.xyz) is added.
+site-url = "/docs/"
