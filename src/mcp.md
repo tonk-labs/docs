@@ -2,15 +2,32 @@
 
 Connect an AI agent to your Tonk spaces. The agent gets a space of its own and works in the spaces you share with it, with the access you choose.
 
-**Server URL:** `TODO: https://…/mcp`
+**Server URL:** `https://tonk.network/mcp`
 **Transport:** Streamable HTTP
-**Authentication:** TODO (OAuth 2.0 sign-in with your Tonk account?)
+**Authentication:** OAuth, sign in with your Tonk account
 
 ## Connect
 
-**Claude:** [Add to Claude](TODO: https://claude.ai/customize/connectors?modal=add-custom-connector&connectorName=Tonk&connectorUrl=ENCODED_URL), or go to Customize > Connectors > Add custom connector and paste the server URL.
+### Claude
 
-**Other MCP clients:** add the server URL as a remote (HTTP) MCP server and sign in when prompted.
+**[Add Tonk to Claude](https://claude.ai/customize/connectors?modal=add-custom-connector&connectorName=Tonk&connectorUrl=https%3A%2F%2Ftonk.network%2Fmcp)**
+
+The link opens Claude's Add custom connector dialog with the name and URL filled in. Confirm, then select **Connect** and sign in to Tonk.
+
+To add it by hand: Customize > Connectors > Add custom connector, and paste `https://tonk.network/mcp`.
+
+### ChatGPT
+
+ChatGPT has no install link for custom apps, so add it in settings. Custom apps need developer mode, which is available on paid plans.
+
+1. In ChatGPT, open Settings and turn on **Developer mode** (under Apps, or Security, depending on your version).
+2. Create an app (**Create app** or **Add custom app**).
+3. Name it `Tonk`, set the server URL to `https://tonk.network/mcp` and authentication to **OAuth**.
+4. Confirm the custom app notice, create it, and sign in to Tonk.
+
+### Other MCP clients
+
+Add `https://tonk.network/mcp` as a remote (HTTP) MCP server and sign in when prompted.
 
 ## How access works
 
