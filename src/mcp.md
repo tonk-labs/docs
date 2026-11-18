@@ -31,7 +31,7 @@ Add `https://tonk.network/mcp` as a remote (HTTP) MCP server and approve the age
 
 ## How access works
 
-- **Home space.** When you approve a connection you create a new agent or reconnect an existing one. Each agent has a home space where it keeps notes and drafts across conversations.
+- **Home space.** When you approve a connection you create a new agent or reconnect an existing one. Each agent has a home space of its own, where it saves what you ask it to keep.
 - **Granted spaces.** The agent sees no other space until you share one with it. Every grant is per space, read-only or read and write, and expires with the invite link or after 90 days, whichever comes first.
 - **Invite links.** Give the agent a Tonk invite link and your client shows a prompt where you pick the access level before the agent joins. If your client can't show that prompt, grant the space in Tonk instead.
 - **The agent is not you.** It acts as itself, under its own name, and can only do what its access allows. A read-only agent's writes are refused by the space, whatever the model asks for.
@@ -42,12 +42,12 @@ Add `https://tonk.network/mcp` as a remote (HTTP) MCP server and approve the age
 | Tool | What it does | Changes data |
 | - | - | - |
 | `tonk_list_spaces` | Lists the agent's home and the spaces granted to it, with access level and expiry | No |
-| `tonk_query` | Reads a space's schema, records and views | No |
+| `tonk_query` | Reads a space's schema, records and views, written in [Tonk notation](notation.md) | No |
 | `tonk_outline` | Lists the views a space renders, with a route for each | No |
 | `tonk_open_space` | Shows a space's view live in the chat, in clients that support inline UI | No (you can edit from the view in read-write spaces) |
 | `tonk_join_space` | Asks you to approve joining a space from an invite link | No (joining needs your approval) |
-| `tonk_evaluate` | Creates or updates records and runs the space's commands | Yes |
-| `tonk_guide` | Returns the notation reference the agent uses to read and write | No |
+| `tonk_evaluate` | Creates or updates records and runs the space's commands, written in [Tonk notation](notation.md) | Yes |
+| `tonk_guide` | Returns the manuals the agent uses to read and write, including the [notation reference](notation.md) | No |
 
 ## Removing access
 
