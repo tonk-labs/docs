@@ -4,7 +4,7 @@ Connect an AI agent to your Tonk spaces. The agent gets a space of its own and w
 
 **Server URL:** `https://tonk.network/mcp`
 **Transport:** Streamable HTTP
-**Authentication:** OAuth, sign in with your Tonk account
+**Authentication:** OAuth. You approve each connection in Tonk with your passkey.
 
 ## Connect
 
@@ -12,7 +12,7 @@ Connect an AI agent to your Tonk spaces. The agent gets a space of its own and w
 
 **[Add Tonk to Claude](https://claude.ai/customize/connectors?modal=add-custom-connector&connectorName=Tonk&connectorUrl=https%3A%2F%2Ftonk.network%2Fmcp)**
 
-The link opens Claude's Add custom connector dialog with the name and URL filled in. Confirm, then select **Connect** and sign in to Tonk.
+The link opens Claude's Add custom connector dialog with the name and URL filled in. Confirm, then select **Connect** and approve the agent in Tonk.
 
 To add it by hand: Customize > Connectors > Add custom connector, and paste `https://tonk.network/mcp`.
 
@@ -23,19 +23,19 @@ ChatGPT has no install link for custom apps, so add it in settings. Custom apps 
 1. In ChatGPT, open Settings and turn on **Developer mode** (under Apps, or Security, depending on your version).
 2. Create an app (**Create app** or **Add custom app**).
 3. Name it `Tonk`, set the server URL to `https://tonk.network/mcp` and authentication to **OAuth**.
-4. Confirm the custom app notice, create it, and sign in to Tonk.
+4. Confirm the custom app notice, create it, and approve the agent in Tonk.
 
 ### Other MCP clients
 
-Add `https://tonk.network/mcp` as a remote (HTTP) MCP server and sign in when prompted.
+Add `https://tonk.network/mcp` as a remote (HTTP) MCP server and approve the agent in Tonk when prompted.
 
 ## How access works
 
-- **Home space.** Each connection gets its own agent with a home space where it keeps notes and drafts across conversations.
-- **Granted spaces.** The agent sees no other space until you share one with it. Every grant is per space, read-only or read and write, and expires.
+- **Home space.** When you approve a connection you create a new agent or reconnect an existing one. Each agent has a home space where it keeps notes and drafts across conversations.
+- **Granted spaces.** The agent sees no other space until you share one with it. Every grant is per space, read-only or read and write, and expires with the invite link or after 90 days, whichever comes first.
 - **Invite links.** Give the agent a Tonk invite link and your client shows a prompt where you pick the access level before the agent joins. If your client can't show that prompt, grant the space in Tonk instead.
-- **The agent is not you.** It joins spaces as its own member, not with your identity, and can only act within the access you granted.
-- **Writes are explicit.** Reads never change anything. Changes go through the space's own commands and run once.
+- **The agent is not you.** It acts as itself, under its own name, and can only do what its access allows. A read-only agent's writes are refused by the space, whatever the model asks for.
+- **Writes are explicit.** Reads never change anything. Each write runs at most once and is never replayed automatically; if a reply is lost, the agent checks the space before trying again. Every change is recorded in the space's history.
 
 ## Tools
 
@@ -49,9 +49,11 @@ Add `https://tonk.network/mcp` as a remote (HTTP) MCP server and sign in when pr
 | `tonk_evaluate` | Creates or updates records and runs the space's commands | Yes |
 | `tonk_guide` | Returns the notation reference the agent uses to read and write | No |
 
-## Revoking access
+## Removing access
 
-TODO: where in Tonk a person removes an agent from a space or ends a grant early. Grants also lapse on their own when they expire.
+Open **your agents** in Tonk and remove the agent's access to a space, or remove the agent altogether. Removing asks for your passkey.
+
+Removing an agent does not end the invite link it joined with: whoever has the link can still use it. Grants also lapse on their own when they expire.
 
 ## Data and privacy
 
